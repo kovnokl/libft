@@ -3,11 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:02:54 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/11 14:38:07 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/14 23:36:00 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
+
+char	*strrchr(const char *s, int c);

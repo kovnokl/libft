@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:35:52 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/11 13:56:55 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/14 22:09:00 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,3 @@ int	ft_atoi(const char *str)
 	value *= negative;
 	return (value);
 }
-
-/* int	main(void)
-{
-	printf("%d", ft_atoi("-33333333333"));
-} */
