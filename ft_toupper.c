@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:41 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/11 14:02:13 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/15 17:09:08 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c + ('A' - 'a'));
+		return (c - ('a' - 'A'));
 	return (c);
 }

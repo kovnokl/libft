@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:24:31 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/14 23:54:09 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/15 18:12:10 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*ptr;
 
 	ptr = malloc(count * size);
-	if (ptr)
-		ft_memset(ptr, 0, count * size);
+	if (!ptr)
+		return (0);
+	ft_memset(ptr, 0, count * size);
 	return (ptr);
 }

@@ -6,13 +6,11 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 00:19:46 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/15 16:19:43 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/15 17:47:48 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "string.h"
-#include "stdio.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

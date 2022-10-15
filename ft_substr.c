@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 14:43:13 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/15 17:40:16 by knickel          ###   ########.fr       */
+/*   Created: 2022/10/15 17:20:44 by knickel           #+#    #+#             */
+/*   Updated: 2022/10/15 18:29:39 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*cdest;
-	char	*csrc;
-	char	*temp;
-	int		counter;
+	char	*sub;
 
-	cdest = (char *)dst;
-	csrc = (char *)src;
-	temp = (char *)malloc(sizeof(char) * len);
-	if (!temp)
+	sub = (char *)malloc(sizeof(char) * len);
+	if (!sub)
 		return (0);
-	counter = 0;
-	while (counter < len)
-	{
-		temp[counter] = csrc[counter];
-		counter++;
-	}
-	counter = 0;
-	while (counter < len)
-	{
-		cdest[counter] = temp[counter];
-		counter++;
-	}
-	return (dst);
+	ft_strlcpy(sub, &s[start], len);
+	return (sub);
 }

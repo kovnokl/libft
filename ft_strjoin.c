@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 14:43:13 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/15 17:40:16 by knickel          ###   ########.fr       */
+/*   Created: 2022/10/15 18:30:11 by knickel           #+#    #+#             */
+/*   Updated: 2022/10/15 18:49:16 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*cdest;
-	char	*csrc;
-	char	*temp;
-	int		counter;
+	char	*str;
+	char	*str_ptr;
 
-	cdest = (char *)dst;
-	csrc = (char *)src;
-	temp = (char *)malloc(sizeof(char) * len);
-	if (!temp)
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
 		return (0);
-	counter = 0;
-	while (counter < len)
+	str_ptr = str;
+	while (*s1)
 	{
-		temp[counter] = csrc[counter];
-		counter++;
+		*str_ptr = *s1;
+		str_ptr++;
+		s1++;
 	}
-	counter = 0;
-	while (counter < len)
+	while (*s2)
 	{
-		cdest[counter] = temp[counter];
-		counter++;
+		*str_ptr = *s2;
+		str_ptr++;
+		s2++;
 	}
-	return (dst);
+	str_ptr = 0;
+	return (str);
 }

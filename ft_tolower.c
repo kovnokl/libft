@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:01:37 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/11 14:02:48 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/15 18:09:56 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (c - ('A' - 'a'));
+		return (c + ('a' - 'A'));
 	return (c);
 }
