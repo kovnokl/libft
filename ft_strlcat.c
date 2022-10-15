@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 23:13:21 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/15 15:34:02 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/15 16:00:08 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dsize)
 		remaining_size--;
 	}
 	if (remaining_size)
-		dst = 0;
+		*dst = 0;
 	return (dst_len + src_len);
 }
