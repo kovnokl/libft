@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 14:43:13 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/16 00:19:22 by knickel          ###   ########.fr       */
+/*   Created: 2022/10/15 23:27:48 by knickel           #+#    #+#             */
+/*   Updated: 2022/10/16 01:01:38 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "string.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	**ft_split(char const *s, char c)
 {
-	char	*cdest;
-	char	*csrc;
-	int		counter;
+	char	**splitted_array;
+	size_t	substring_amount;
+	size_t	counter;
 
-	cdest = (char *)dst;
-	csrc = (char *)src;
+	substring_amount = 0;
 	counter = 0;
-	while (counter < len)
+	while (s[counter])
 	{
-		if (src < dst)
-			cdest[len - counter - 1] = csrc[len - counter - 1];
-		else
-			cdest[counter] = csrc[counter];
+		if (s[counter] == c)
+			substring_amount++;
 		counter++;
 	}
-	return (dst);
+	splitted_array = (char **)malloc(sizeof(char *) * substring_amount);
+	counter = 0;
+	while(counter < substring_amount)
+	{
+		splitted_array[counter] = malloc
+	}
 }
