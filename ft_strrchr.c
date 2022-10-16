@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:02:54 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/15 16:45:19 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/16 04:57:51 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 char	*strrchr(const char *s, int c)
 {
 	char	cc;
+	char	*snc;
 	size_t	counter;
 
+	snc = s;
 	cc = (char) c;
 	counter = sizeof(s);
-	s = &s[counter];
+	snc = &s[counter];
 	while (counter > 0)
 	{
-		if (*s == cc)
-			return (s);
+		if (*snc == cc)
+			return (snc);
+		snc--;
 	}
 	return (0);
 }

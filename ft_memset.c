@@ -6,11 +6,11 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:06:19 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/14 23:41:39 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/16 04:48:54 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {
