@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 23:27:48 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/16 05:52:47 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/17 16:44:05 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**ft_split(char const *s, char c)
 	size_t	substring_size;
 	size_t	counter;
 
-	substr = s;
+	substr = (char *)s;
 	substring_amount = 0;
 	counter = 0;
 	while (s[counter])

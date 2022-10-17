@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 00:19:46 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/15 17:47:48 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/17 16:41:57 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (*s1 || *s2)
+	while ((*s1 || *s2) && n)
 	{
 		if (*s1 < *s2)
 			return (-1);
@@ -22,6 +22,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 			return (1);
 		s1++;
 		s2++;
+		n--;
 	}
 	return (0);
 }

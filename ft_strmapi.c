@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 23:48:05 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/17 16:41:14 by knickel          ###   ########.fr       */
+/*   Created: 2022/10/17 20:50:04 by knickel           #+#    #+#             */
+/*   Updated: 2022/10/17 22:05:55 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	needle_size;
+	size_t	str_size;
+	char	*new_str;
 	size_t	counter;
 
-	needle_size = sizeof(needle);
-	if (!needle_size)
-		return ((char *)haystack);
+	str_size = ft_strlen(s);
+	new_str = (char *)malloc(sizeof(char) * str_size);
+	if (!new_str)
+		return (0);
 	counter = 0;
-	while (counter <= len - needle_size)
+	while (counter < str_size - 1)
 	{
-		if (!ft_strncmp(&haystack[counter], needle, needle_size))
-			return ((char *)&haystack[counter]);
+		new_str[counter] = f(counter, s[counter]);
+		counter++;
 	}
-	return (0);
+	return (new_str);
 }

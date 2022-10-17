@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:08:40 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/14 22:12:38 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/17 16:44:19 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*ucs1;
 	unsigned char	*ucs2;
-	int				counter;
+	size_t			counter;
 
 	ucs1 = (unsigned char *)s1;
 	ucs2 = (unsigned char *)s2;

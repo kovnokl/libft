@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 23:48:05 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/17 16:41:14 by knickel          ###   ########.fr       */
+/*   Created: 2022/10/17 22:17:16 by knickel           #+#    #+#             */
+/*   Updated: 2022/10/17 22:21:10 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	needle_size;
-	size_t	counter;
+	t_list	*new_list;
 
-	needle_size = sizeof(needle);
-	if (!needle_size)
-		return ((char *)haystack);
-	counter = 0;
-	while (counter <= len - needle_size)
-	{
-		if (!ft_strncmp(&haystack[counter], needle, needle_size))
-			return ((char *)&haystack[counter]);
-	}
-	return (0);
+	new_list = (t_list *)malloc(sizeof(t_list));
+	new_list->content = content;
+	return (new_list);
 }
