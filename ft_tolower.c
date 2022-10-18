@@ -6,13 +6,13 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:01:37 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/15 18:09:56 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/18 03:15:45 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	tolower(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + ('a' - 'A'));

@@ -6,13 +6,13 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:41 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/15 17:09:08 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/18 03:15:51 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - ('a' - 'A'));

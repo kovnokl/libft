@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 23:48:05 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/17 16:41:14 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/18 03:36:31 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		if (!ft_strncmp(&haystack[counter], needle, needle_size))
 			return ((char *)&haystack[counter]);
+		counter++;
 	}
 	return (0);
 }

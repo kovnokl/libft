@@ -6,13 +6,13 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 22:15:21 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/15 23:42:36 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/18 04:00:03 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	char	*dup;
 	size_t	str_counter;
