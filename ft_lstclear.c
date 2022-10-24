@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 22:46:10 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/18 00:14:33 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/20 16:28:25 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,13 @@ t_list	*ft_lstscndlast(t_list *lst);
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*second_last;
+	t_list	*next;
 
-	second_last = ft_lstscndlast(*lst);
-	while (second_last)
+	while (*lst)
 	{
-		ft_lstdelone(second_last->next, del);
-		free(second_last->next);
-		second_last->next = 0;
-		second_last = ft_lstscndlast(*lst);
+		next = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = next;
 	}
-	ft_lstdelone(*lst, del);
-	free(*lst);
 	lst = 0;
-}
-
-t_list	*ft_lstscndlast(t_list *lst)
-{
-	t_list	*second_last;
-
-	second_last = 0;
-	if (lst->next)
-		second_last = lst;
-	while (second_last->next->next)
-		second_last = second_last->next;
-	return (second_last);
 }

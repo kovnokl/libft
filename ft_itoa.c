@@ -6,42 +6,65 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:03:02 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/18 04:43:21 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/24 20:45:48 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "stdio.h"
 
-int	ft_pow(int n, size_t p);
-int	ft_abs(int n);
+int		ft_pow(int n, size_t p);
+char	*create_str(size_t str_size, int negative);
+int		ft_abs(int n);
+void	iterate_str(char *str, size_t str_size, int negative, int n);
 
 char	*ft_itoa(int n)
 {
 	char	*str;
-	size_t	str_size;
 	size_t	counter;
 	int		negative;
+	size_t	position;
 
-	str_size = 1;
 	counter = 1;
 	negative = 0;
-	if (n < 0)
-		negative = 1;
-	n = ft_abs(n);
 	while (n / ft_pow(10, counter))
 		counter++;
-	str_size += counter;
-	str = (char *)calloc((str_size + negative), sizeof(char));
+	str = create_str(counter + 1, negative);
+	if (str == NULL)
+		return (NULL);
+	if (n < 0)
+		negative = 1;
+	if (n == -2147483648)
+	{
+		str = "-2147483648";
+		return (str);
+	}
+	n = ft_abs(n);
+	iterate_str(str, counter + negative, negative, n);
+	return (str);
+}
+
+void	iterate_str(char *str, size_t str_size, int negative, int n)
+{
+	size_t	start_pos;
+
+	start_pos = str_size - 1;
+	while (start_pos > negative)
+	{
+		str[start_pos] = ((n / ft_pow(10, str_size - start_pos)) % 10) + '0';
+		start_pos--;
+	}	
+}
+
+char	*create_str(size_t str_size, int negative)
+{
+	char	*str;
+
+	str = (char *)malloc(sizeof(char) * );
 	if (!str)
-		return (0);
+		return (NULL);
 	if (negative)
 		str[0] = '-';
-	while (counter + negative > 1)
-	{
-		str[str_size - counter] = ((n / ft_pow(10, counter - 1)) % 10) + '0';
-		counter--;
-	}
 	return (str);
 }
 
@@ -69,6 +92,5 @@ int	ft_pow(int n, size_t p)
 
 int	main(void)
 {
-	printf("%s", ft_itoa(449));
-	return (1);
+	printf("%s", ft_itoa(-123));
 }

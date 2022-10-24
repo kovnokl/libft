@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 23:48:05 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/18 03:36:31 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/19 04:32:04 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	needle_size;
 	size_t	counter;
 
-	needle_size = sizeof(needle);
+	if (!len)
+		return (NULL);
+	needle_size = ft_strlen(needle);
 	if (!needle_size)
 		return ((char *)haystack);
 	counter = 0;
@@ -27,5 +29,5 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			return ((char *)&haystack[counter]);
 		counter++;
 	}
-	return (0);
+	return (NULL);
 }

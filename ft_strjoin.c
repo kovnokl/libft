@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:30:11 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/17 14:05:51 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/19 06:02:16 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,22 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
-	char	*str_ptr;
+	size_t	counter;
 
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (0);
-	str_ptr = str;
-	while (*s1)
+	counter = 0;
+	while (s1[counter])
 	{
-		*str_ptr = *s1;
-		str_ptr++;
-		s1++;
+		str[counter] = s1[counter];
+		counter++;
 	}
-	while (*s2)
+	while (s2[counter - ft_strlen(s1)])
 	{
-		*str_ptr = *s2;
-		str_ptr++;
-		s2++;
+		str[counter] = s2[counter - ft_strlen(s1)];
+		counter++;
 	}
-	str_ptr = 0;
+	str[counter] = 0;
 	return (str);
 }

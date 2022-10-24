@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 22:21:33 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/17 22:26:08 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/20 17:02:14 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (new == NULL || lst == NULL)
+		return ;
 	new->next = *lst;
-	lst = &new;
+	*lst = new;
 }

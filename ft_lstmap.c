@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 23:53:04 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/18 00:42:44 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/20 18:28:17 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,26 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_map;
-	t_list	*prev_head;
+	t_list	*new_list;
+	t_list	*new_node;
 
-	new_map = ft_lstnew(f(lst->content));
-	prev_head = new_map;
-	if (!new_map)
-		return (0);
-	while (lst)
+	if (lst == NULL)
+		return (NULL);
+	new_node = ft_lstnew(f(lst->content));
+	if (new_node == NULL)
+		return (NULL);
+	new_list = new_node;
+	lst = lst->next;
+	while (lst != NULL)
 	{
-		ft_lstadd_back(&new_map, f(lst->content));
-		lst = lst->next;
-		if (!prev_head->next)
+		new_node = ft_lstnew(f(lst->content));
+		if (new_node == NULL)
 		{
-			ft_lstclear(&new_map, del);
-			return (0);
+			ft_lstclear(&new_list, del);
+			return (NULL);
 		}
-		prev_head = lst;
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
 	}
-	return (lst);
+	return (new_list);
 }

@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 23:30:33 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/18 01:02:56 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/18 23:00:10 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dsize)
 {
-	size_t	remaining_size;
+	size_t	counter;
 
-	remaining_size = dsize;
-	while (*src && remaining_size > 1)
+	counter = 0;
+	if (dsize > 0)
 	{
-		*dst = *src;
-		dst++;
-		src++;
-		remaining_size--;
+		while (src[counter] && counter < (dsize - 1))
+		{
+			dst[counter] = src[counter];
+			counter++;
+		}
+		dst[counter] = 0;
 	}
-	if (remaining_size)
-		*dst = 0;
-	return (sizeof(src));
+	while (src[counter])
+		counter++;
+	return (counter);
 }

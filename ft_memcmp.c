@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:08:40 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/17 16:44:19 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/18 16:00:34 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		if (ucs1[counter] > ucs2[counter])
 			return (1);
 		else if (ucs1[counter] < ucs2[counter])
-			return (2);
+			return (-1);
 		counter++;
 	}
 	return (0);

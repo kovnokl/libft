@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 22:15:21 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/18 04:00:03 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/18 16:08:56 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char	*ft_strdup(const char *s1)
 		dup[str_counter] = s1[str_counter];
 		str_counter++;
 	}
+	dup[str_counter] = 0;
 	return (dup);
 }
