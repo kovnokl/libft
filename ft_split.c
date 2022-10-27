@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 23:27:48 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/20 19:51:23 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/25 15:28:23 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@ char	*get_next_sub(char **substr, char c);
 char	**ft_split(char const *s, char c)
 {
 	char	**splitted_array;
-	char	*substr;
 	size_t	substring_amount;
 	size_t	counter;
 
-	substr = (char *)s;
 	substring_amount = 0;
 	counter = 0;
 	if (*s != c && *s)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:03:02 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/24 20:45:48 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/27 01:23:21 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,39 @@
 
 int		ft_pow(int n, size_t p);
 char	*create_str(size_t str_size, int negative);
-int		ft_abs(int n);
-void	iterate_str(char *str, size_t str_size, int negative, int n);
+size_t	get_digit_count(int n);
+void	iterate_str(char *str, size_t str_size, size_t negative, int n);
 
 char	*ft_itoa(int n)
 {
 	char	*str;
 	size_t	counter;
-	int		negative;
-	size_t	position;
+	size_t	negative;
 
-	counter = 1;
+	counter = get_digit_count(n);
 	negative = 0;
-	while (n / ft_pow(10, counter))
-		counter++;
+	if (n < 0)
+		negative = 1;
 	str = create_str(counter + 1, negative);
 	if (str == NULL)
 		return (NULL);
-	if (n < 0)
-		negative = 1;
-	if (n == -2147483648)
-	{
-		str = "-2147483648";
-		return (str);
-	}
-	n = ft_abs(n);
 	iterate_str(str, counter + negative, negative, n);
 	return (str);
 }
 
-void	iterate_str(char *str, size_t str_size, int negative, int n)
+void	iterate_str(char *str, size_t str_size, size_t negative, int n)
 {
-	size_t	start_pos;
+	size_t	startps;
 
-	start_pos = str_size - 1;
-	while (start_pos > negative)
+	startps = str_size - 1;
+	while (startps + 1 > negative)
 	{
-		str[start_pos] = ((n / ft_pow(10, str_size - start_pos)) % 10) + '0';
-		start_pos--;
+		if (negative)
+			str[startps] = (n % 10) * -1 + '0';
+		else
+			str[startps] = n % 10 + '0';
+		n /= 10;
+		startps--;
 	}	
 }
 
@@ -60,37 +55,24 @@ char	*create_str(size_t str_size, int negative)
 {
 	char	*str;
 
-	str = (char *)malloc(sizeof(char) * );
+	str = (char *)malloc(sizeof(char) * (str_size + negative));
 	if (!str)
 		return (NULL);
 	if (negative)
 		str[0] = '-';
+	str[str_size + negative - 1] = 0;
 	return (str);
 }
 
-int	ft_abs(int n)
-{
-	if (n < 0)
-		return (n * -1);
-	return (n);
-}
-
-int	ft_pow(int n, size_t p)
+size_t	get_digit_count(int n)
 {
 	size_t	counter;
-	int		out;
 
-	counter = 0;
-	out = 1;
-	while (counter < p)
+	counter = 1;
+	while (n / 10)
 	{
-		out *= n;
+		n /= 10;
 		counter++;
 	}
-	return (out);
-}
-
-int	main(void)
-{
-	printf("%s", ft_itoa(-123));
+	return (counter);
 }

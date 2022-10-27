@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:43:13 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/17 13:29:27 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/25 15:27:43 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*cdest;
 	char	*csrc;
 	size_t	counter;
-	int		left;
 
-	left = 0;
 	cdest = (char *)dst;
 	csrc = (char *)src;
 	counter = 0;
