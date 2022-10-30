@@ -6,11 +6,12 @@
 #    By: knickel <knickel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 01:46:23 by knickel           #+#    #+#              #
-#    Updated: 2022/10/21 23:13:14 by knickel          ###   ########.fr        #
+#    Updated: 2022/10/27 18:08:06 by knickel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # tool macros
+NAME = libft.a
 CC = gcc
 RM = rm -f
 OPT = -O0
@@ -23,7 +24,6 @@ BONUSSRCFILES = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstiter.c ft
 OBJS = $(MAINSRCFILES:.c=.o)
 BONUSOBJS = $(BONUSSRCFILES:.c=.o)
 
-NAME = libft.a
 
 # phony rules
 .PHONY: all clean fclean re bonus

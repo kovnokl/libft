@@ -3,80 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 23:27:48 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/25 15:28:23 by knickel          ###   ########.fr       */
+/*   Updated: 2022/10/27 22:00:30 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	iterate_substr(char **splitted_array, char c, size_t substring_amount);
-char	**clear_split(char **splitted_array, size_t how_much);
-char	*get_next_sub(char **substr, char c);
+size_t	count_substrs(char *s, char c);
+void	iterate_subs(char **substrings, size_t substr_cnt);
 
 char	**ft_split(char const *s, char c)
 {
-	char	**splitted_array;
-	size_t	substring_amount;
+	char	**substrings;
+	size_t	substr_cnt;
+
+	if (s == NULL)
+		return (NULL);
+	substr_cnt = count_substrs(s, c);
+	substrings = (char **)malloc(sizeof(char *) * (substr_cnt + 1));
+	if (substrings == NULL)
+		return (NULL);
+	substrings[substr_cnt] = 0;
+	iterate_subs(substrings, substr_cnt);
+}
+
+size_t	count_substrs(char *s, char c)
+{
+	size_t	sub_amount;
+	size_t	str_len;
 	size_t	counter;
 
-	substring_amount = 0;
+	str_len = ft_strlen(s);
+	sub_amount = 0;
 	counter = 0;
-	if (*s != c && *s)
-		substring_amount = 1;
-	while (s[counter])
+	if (str_len && s[0] && s[0] != c)
+		sub_amount++;
+	while (counter < str_len - 1)
 	{
-		if (s[counter] == c && s[counter + 1] && s[counter + 1] != c)
-			substring_amount++;
+		if (s[counter] == c && s[counter + 1] != c)
+			sub_amount++;
 		counter++;
 	}
-	if (!substring_amount)
-		return (0);
-	splitted_array = (char **)malloc(sizeof(char *) * (substring_amount + 1));
-	splitted_array[substring_amount] = 0;
-	iterate_substr(splitted_array, c, substring_amount);
-	return (splitted_array);
+	return (sub_amount);
 }
 
-void	iterate_substr(char **splitted_array, char c, size_t substring_amount)
+void	iterate_subs(char **substrings, size_t substr_cnt)
 {
-	size_t	counter;
-
-	counter = 0;
-	while (counter < substring_amount)
-	{
-		splitted_array[counter] = get_next_sub(splitted_array, c);
-		if (!splitted_array)
-			splitted_array = (clear_split(splitted_array, counter + 1));
-	}
-}
-
-char	*get_next_sub(char **substr, char c)
-{
-	size_t	substring_size;
-	char	*new_sub;
-	char	*found_char;
-
-	found_char = ft_strchr(*substr, (int)c);
-	if (!found_char)
-		substring_size = found_char - *substr;
-	else
-		substring_size = ft_strlen(*substr);
-	new_sub = ft_substr(*substr, 0, substring_size);
-	*substr = ft_strchr(*substr, (int)c) + 1;
-	return (new_sub);
-}
-
-char	**clear_split(char **splitted_array, size_t how_much)
-{
-	size_t	counter;
-
-	counter = 0;
-	while (counter < how_much)
-	{
-		free(splitted_array[counter]);
-	}
-	return (0);
+	
 }
