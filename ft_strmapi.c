@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 20:50:04 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/19 04:53:17 by knickel          ###   ########.fr       */
+/*   Updated: 2022/12/02 16:32:48 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	counter;
 
 	str_size = ft_strlen(s);
-	if (!str_size)
-		return (0);
 	new_str = (char *)malloc(sizeof(char) * (str_size + 1));
-	if (!new_str)
-		return (0);
+	if (new_str == NULL)
+		return (NULL);
 	counter = 0;
 	while (counter < str_size)
 	{

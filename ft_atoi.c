@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:35:52 by knickel           #+#    #+#             */
-/*   Updated: 2022/11/02 19:17:50 by knickel          ###   ########.fr       */
+/*   Updated: 2022/12/02 15:46:12 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_atoi(const char *str)
 	value = 0;
 	negative = 1;
 	counter = 0;
-	if (!str)
+	if (str == NULL)
 		return (0);
 	while (ft_isspace(str[counter]))
 		counter ++;
@@ -32,7 +32,7 @@ int	ft_atoi(const char *str)
 		negative = -1;
 		counter++;
 	}
-	else if (*str == '+')
+	else if (str[counter] == '+')
 		counter++;
 	while (str[counter] >= '0' && str[counter] <= '9')
 	{
@@ -46,6 +46,5 @@ int	ft_atoi(const char *str)
 int	ft_isspace(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\a' || c == '\b' || c == '\f'
-		|| c == '\r' || c == '\v');
+		|| c == '\f' || c == '\r' || c == '\v');
 }
