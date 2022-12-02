@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:35:52 by knickel           #+#    #+#             */
-/*   Updated: 2022/12/02 15:46:12 by knickel          ###   ########.fr       */
+/*   Updated: 2022/12/02 18:21:18 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int	ft_atoi(const char *str)
 	value = 0;
 	negative = 1;
 	counter = 0;
-	if (str == NULL)
-		return (0);
 	while (ft_isspace(str[counter]))
 		counter ++;
 	if (str[counter] == '-')
