@@ -6,12 +6,11 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:13:14 by knickel​​​​       #+#    #+#             */
-/*   Updated: 2022/12/02 15:21:53 by knickel          ###   ########.fr       */
+/*   Updated: 2022/12/02 15:26:23 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t	count_substrs(const char *s, char c);
 void	iterate_subs(char **substrings, size_t sub_cnt, const char *s, char c);
