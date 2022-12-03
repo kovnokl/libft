@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:30:11 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/19 06:02:16 by knickel          ###   ########.fr       */
+/*   Updated: 2022/12/03 17:52:07 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
-		return (0);
+		return (NULL);
 	counter = 0;
 	while (s1[counter])
 	{

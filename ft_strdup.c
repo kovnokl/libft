@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 22:15:21 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/18 16:08:56 by knickel          ###   ########.fr       */
+/*   Updated: 2022/12/03 17:51:41 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s1)
 		str_counter++;
 	dup = (char *)malloc(sizeof(char) * (str_counter + 1));
 	if (!dup)
-		return (0);
+		return (NULL);
 	str_counter = 0;
 	while (s1[str_counter])
 	{

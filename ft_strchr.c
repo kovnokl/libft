@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 22:14:05 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/18 03:35:37 by knickel          ###   ########.fr       */
+/*   Updated: 2022/12/03 17:51:28 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (!cc)
 		return ((char *)s);
-	return (0);
+	return (NULL);
 }
