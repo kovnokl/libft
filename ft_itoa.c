@@ -6,16 +6,15 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:03:02 by knickel           #+#    #+#             */
-/*   Updated: 2022/12/03 17:49:54 by knickel          ###   ########.fr       */
+/*   Updated: 2022/12/04 19:18:27 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_pow(int n, size_t p);
-char	*create_str(size_t str_size, int negative);
-size_t	get_digit_count(int n);
-void	iterate_str(char *str, size_t str_size, size_t negative, int n);
+static char		*create_str(size_t str_size, int negative);
+static size_t	get_digit_count(int n);
+static void		iterate_str(char *str, size_t str_size, size_t negative, int n);
 
 char	*ft_itoa(int n)
 {
@@ -34,7 +33,7 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-void	iterate_str(char *str, size_t str_size, size_t negative, int n)
+static void	iterate_str(char *str, size_t str_size, size_t negative, int n)
 {
 	size_t	startps;
 
@@ -50,7 +49,7 @@ void	iterate_str(char *str, size_t str_size, size_t negative, int n)
 	}	
 }
 
-char	*create_str(size_t str_size, int negative)
+static char	*create_str(size_t str_size, int negative)
 {
 	char	*str;
 
@@ -63,7 +62,7 @@ char	*create_str(size_t str_size, int negative)
 	return (str);
 }
 
-size_t	get_digit_count(int n)
+static size_t	get_digit_count(int n)
 {
 	size_t	counter;
 

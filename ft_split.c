@@ -6,35 +6,35 @@
 /*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:13:14 by knickel​​​​       #+#    #+#             */
-/*   Updated: 2022/12/02 15:26:23 by knickel          ###   ########.fr       */
+/*   Updated: 2022/12/04 19:16:44 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_substrs(const char *s, char c);
-void	iterate_subs(char **substrings, size_t sub_cnt, const char *s, char c);
-char	**empty_list(void);
-void	delete_list(char **substrings, size_t input_cnt);
+static size_t	count_substrs(const char *s, char c);
+static void		iterate_subs(char **subs, size_t sub_ct, const char *s, char c);
+static char		**empty_list(void);
+static void		delete_list(char **subs, size_t input_cnt);
 
 char	**ft_split(char const *s, char c)
 {
-	char	**substrings;
-	size_t	sub_cnt;
+	char	**subs;
+	size_t	sub_ct;
 
 	if (s == NULL)
 		return (empty_list());
-	sub_cnt = count_substrs(s, c);
-	substrings = (char **)malloc(sizeof(char *) * (sub_cnt + 1));
-	if (substrings == NULL)
+	sub_ct = count_substrs(s, c);
+	subs = (char **)malloc(sizeof(char *) * (sub_ct + 1));
+	if (subs == NULL)
 		return (NULL);
-	substrings[sub_cnt] = NULL;
-	if (sub_cnt > 0)
-		iterate_subs(substrings, sub_cnt, s, c);
-	return (substrings);
+	subs[sub_ct] = NULL;
+	if (sub_ct > 0)
+		iterate_subs(subs, sub_ct, s, c);
+	return (subs);
 }
 
-size_t	count_substrs(const char *s, char c)
+static size_t	count_substrs(const char *s, char c)
 {
 	size_t	sub_amount;
 	size_t	str_len;
@@ -54,7 +54,7 @@ size_t	count_substrs(const char *s, char c)
 	return (sub_amount);
 }
 
-void	iterate_subs(char **substrings, size_t sub_cnt, const char *s, char c)
+static void	iterate_subs(char **subs, size_t sub_ct, const char *s, char c)
 {
 	size_t	counter;
 	size_t	str_pos;
@@ -64,25 +64,25 @@ void	iterate_subs(char **substrings, size_t sub_cnt, const char *s, char c)
 	str_pos = 0;
 	while (s[str_pos] == c)
 		str_pos++;
-	while (counter < sub_cnt)
+	while (counter < sub_ct)
 	{
 		str_len = 0;
 		while (s[str_pos + str_len] != c && s[str_pos + str_len] != 0)
 			str_len++;
-		substrings[counter] = ft_substr(s, str_pos, str_len);
-		if (substrings[counter] == NULL)
+		subs[counter] = ft_substr(s, str_pos, str_len);
+		if (subs[counter] == NULL)
 		{
-			delete_list(substrings, counter);
+			delete_list(subs, counter);
 			break ;
 		}
 		str_pos += str_len + 1;
-		while (counter + 1 < sub_cnt && s[str_pos] == c)
+		while (counter + 1 < sub_ct && s[str_pos] == c)
 			str_pos++;
 		counter++;
 	}
 }
 
-char	**empty_list(void)
+static char	**empty_list(void)
 {
 	char	**empty_list;
 
@@ -91,16 +91,16 @@ char	**empty_list(void)
 	return (empty_list);
 }
 
-void	delete_list(char **substrings, size_t input_cnt)
+static void	delete_list(char **subs, size_t input_cnt)
 {
 	size_t	counter;
 
 	counter = 0;
 	while (counter < input_cnt)
 	{
-		free(substrings[counter]);
+		free(subs[counter]);
 		counter++;
 	}
-	free(substrings);
-	substrings = NULL;
+	free(subs);
+	subs = NULL;
 }
