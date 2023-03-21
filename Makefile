@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: knickel <knickel@student.42.fr>            +#+  +:+       +#+         #
+#    By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 01:46:23 by knickel           #+#    #+#              #
-#    Updated: 2022/10/27 18:08:06 by knickel          ###   ########.fr        #
+#    Updated: 2023/03/21 06:13:53 by knickel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,12 +39,12 @@ fclean: clean
 re: fclean $(NAME)
 
 bonus: $(OBJS) $(BONUSOBJS)
-	ar rc $(NAME) $(OBJS) $(BONUSOBJS)
+	ar $(NAME) $(OBJS) $(BONUSOBJS)
 	ranlib $(NAME)
 
 # non-phony targets
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+	ar $(NAME) $(OBJS)
 	ranlib $(NAME)
 
 %.o:%.c
