@@ -6,7 +6,7 @@
 /*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:56:56 by kovnokl           #+#    #+#             */
-/*   Updated: 2023/02/18 08:51:27 by knickel          ###   ########.fr       */
+/*   Updated: 2023/03/21 06:20:39 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,12 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
 t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *n);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *n);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
