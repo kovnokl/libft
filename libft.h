@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:56:56 by kovnokl           #+#    #+#             */
-/*   Updated: 2023/03/21 06:20:39 by knickel          ###   ########.fr       */
+/*   Updated: 2023/03/24 14:59:59 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+//added afterwards
+char	*ptrtohex(char *ptr);
 
 #endif
