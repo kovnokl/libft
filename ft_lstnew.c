@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 22:17:16 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/18 16:07:33 by knickel          ###   ########.fr       */
+/*   Updated: 2023/03/21 06:44:43 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_list	*ft_lstnew(void *content)
 
 	new_list = (t_list *)malloc(sizeof(t_list));
 	if (!new_list)
-		return (0);
+		return (NULL);
 	new_list->content = content;
-	new_list->next = 0;
+	new_list->next = NULL;
 	return (new_list);
 }

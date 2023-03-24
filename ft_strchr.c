@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: knickel <knickel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: knickel <knickel@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 22:14:05 by knickel           #+#    #+#             */
-/*   Updated: 2022/10/18 03:35:37 by knickel          ###   ########.fr       */
+/*   Updated: 2023/03/21 06:45:01 by knickel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (!cc)
 		return ((char *)s);
-	return (0);
+	return (NULL);
 }
